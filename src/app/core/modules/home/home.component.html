@@ -1,0 +1,6 @@
+<div *ngFor="let word of englishWordList">
+  <h1>{{ word.word }}</h1>
+  <p>{{ word.definition }}</p>
+  <p>{{ word.pronunciation }}</p>
+  <button (click)="otherWord()">other</button>
+</div>
