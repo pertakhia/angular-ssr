@@ -1,6 +1,11 @@
 <div *ngFor="let word of englishWordList">
   <h1>{{ word.word }}</h1>
-  <p>{{ word.definition }}</p>
-  <p>{{ word.pronunciation }}</p>
+  <p>{{ wordMeaning }}</p>
+  <a [href]="translate" target="_blank"> translate {{ word.word }} </a>
+  <div>
+    {{ this.wordVoice }}
+  </div>
+
+  <button (click)="playAudio()" *ngIf="wordVoice !== ''">Play Audio</button>
   <button (click)="otherWord()">other</button>
 </div>
