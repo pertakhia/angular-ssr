@@ -46,7 +46,11 @@ export class HomeComponent implements OnInit {
           item.audio !== '';
           return item.audio;
         });
-        this.wordVoice = this.findAudio.audio;
+        if (this.findAudio !== undefined) {
+          this.wordVoice = this.findAudio.audio;
+        } else {
+          this.wordVoice = '';
+        }
         console.log('voice', this.wordVoice);
       });
   }
