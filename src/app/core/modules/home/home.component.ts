@@ -1,5 +1,5 @@
 import { EnglishWordService } from './../../services/english-word.service';
-import { Observable, pipe } from 'rxjs';
+import { Observable, pipe, shareReplay } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { englishWordArray } from 'src/assets/word-data/english-word';
 
@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
     this.randomWordData();
     this.englishWordStream$ = this.engWordService
       .getEnglishWord(this.randomWord)
+      .pipe(shareReplay(1))
       .subscribe((data: any) => {
         console.log(data);
         this.wordMeaning = data[0].meanings[0].definitions[0].definition;

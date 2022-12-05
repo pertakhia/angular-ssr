@@ -4,6 +4,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
 import { isPlatformServer } from '@angular/common';
@@ -23,8 +24,10 @@ export class UniversalInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    console.log('intercepted request ... ', request);
     if (isPlatformServer(this.platformId)) {
       if (request.method === 'GET') {
+        console.log('server side request GET method');
         const requestUrl = request.url.replace(/^\./, '');
         if (
           this.serverRequest &&
@@ -41,6 +44,11 @@ export class UniversalInterceptor implements HttpInterceptor {
         return EMPTY; // return all call except GET method
       }
     }
-    return next.handle(request);
+
+    const modifiedRequest = request.clone({
+      headers: new HttpHeaders({ token: 'token123123' }),
+    });
+
+    return next.handle(modifiedRequest);
   }
 }

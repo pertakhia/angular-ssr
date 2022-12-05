@@ -1,0 +1,25 @@
+@import "@angular/material/theming";
+@import "primary-pallete";
+@import "warn-pallete";
+
+// Include the common styles for Angular Material. We include this here so that you only
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+
+$angular-ssr-primary: mat-palette($primaryPallete);
+$angular-ssr-accent: mat-palette($mat-pink, A200, A100, A400);
+$angular-ssr-warn: mat-palette($warnPallete);
+
+$angular-ssr-theme: mat-light-theme(
+  (
+    color: (
+      primary: $angular-ssr-primary,
+      accent: $angular-ssr-accent,
+      warn: $angular-ssr-warn,
+    ),
+  )
+);
+
+@include angular-material-theme($angular-ssr-theme);
