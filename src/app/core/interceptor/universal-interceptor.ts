@@ -24,7 +24,6 @@ export class UniversalInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('intercepted request ... ', request);
     if (isPlatformServer(this.platformId)) {
       if (request.method === 'GET') {
         console.log('server side request GET method');
@@ -46,9 +45,11 @@ export class UniversalInterceptor implements HttpInterceptor {
     }
 
     const modifiedRequest = request.clone({
-      headers: new HttpHeaders({ token: 'token123123' }),
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*', // CORS
+      }),
     });
-
     return next.handle(modifiedRequest);
   }
 }

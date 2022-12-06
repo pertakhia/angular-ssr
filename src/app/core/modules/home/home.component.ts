@@ -1,6 +1,6 @@
 import { EnglishWordService } from './../../services/english-word.service';
-import { Observable, pipe, shareReplay } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Observable, pipe, shareReplay, Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { englishWordArray } from 'src/assets/word-data/english-word';
 
 @Component({
@@ -8,52 +8,59 @@ import { englishWordArray } from 'src/assets/word-data/english-word';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   public randomWordStream$: Observable<any> =
     this.engWordService.getRandomeWord();
 
-  public englishWordStream$ = new Observable<any>();
+  public englishWordStream = Subscription.EMPTY;
 
   randomWordList: any = [];
   randomWord: string = '';
-  englishWordList: any[] = [] || 'word';
+  englishWordList: any[] = [];
   public translate: string = ``;
   public wordVoice: string = ``;
   public findAudio: any = [];
   public wordMeaning: string = ``;
+  public loading: boolean = true;
+
+  public url = '//www.w3schools.com';
 
   constructor(private engWordService: EnglishWordService) {}
 
   ngOnInit(): void {
     this.randomWordData();
-
     this.otherWord();
-
-    setTimeout(() => {
-      this.translate = `https://translate.google.com/?sl=en&tl=ka&text=${this.englishWordList[0].word}&op=translate`;
-    }, 1000);
   }
 
   otherWord(): void {
-    this.randomWordData();
-    this.englishWordStream$ = this.engWordService
-      .getEnglishWord(this.randomWord)
-      .pipe(shareReplay(1))
-      .subscribe((data: any) => {
-        console.log(data);
-        this.wordMeaning = data[0].meanings[0].definitions[0].definition;
-        this.englishWordList = data;
-        this.findAudio = data[0].phonetics.find((item: any) => {
-          item.audio !== '';
-          return item.audio;
+    new Promise((resolve, reject) => {
+      this.loading = true;
+      this.randomWordData();
+      console.log('random word');
+      resolve(this.randomWord);
+    }).then((res: any) => {
+      console.log(res);
+      this.englishWordStream = this.engWordService
+        .getEnglishWord(res)
+        .subscribe((data: any) => {
+          console.log(data);
+          this.wordMeaning = data[0].meanings[0].definitions[0].definition;
+          this.englishWordList = data;
+          this.findAudio = data[0].phonetics.find((item: any) => {
+            item.audio !== '';
+            return item.audio;
+          });
+          if (this.findAudio !== undefined) {
+            this.wordVoice = this.findAudio.audio;
+          } else {
+            this.wordVoice = '';
+          }
+          this.translate = `https://translate.google.com/?sl=en&tl=ka&text=${this.englishWordList[0].word}&op=translate`;
+          console.log('translate', this.translate);
+          console.log('voice', this.wordVoice);
+          this.loading = false;
         });
-        if (this.findAudio !== undefined) {
-          this.wordVoice = this.findAudio.audio;
-        } else {
-          this.wordVoice = '';
-        }
-        console.log('voice', this.wordVoice);
-      });
+    });
   }
 
   playAudio(): void {
@@ -91,4 +98,8 @@ export class HomeComponent implements OnInit {
   //       });
   //   });
   // }
+
+  ngOnDestroy(): void {
+    this.englishWordStream.unsubscribe();
+  }
 }

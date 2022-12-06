@@ -1,3 +1,50 @@
 .test-color {
   color: var(--sucessText);
 }
+
+.display-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card {
+  width: 400px;
+  height: auto;
+  margin-top: 50px;
+  padding: 12px;
+  background-color: var(--success);
+  min-height: 230px;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 340px;
+  }
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.meaning {
+  font-size: 18px;
+  color: var(--white);
+}
+
+mat-card-actions {
+  justify-content: space-between;
+  flex: 1;
+  align-items: flex-end;
+}
+
+button {
+  font-size: 18px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
