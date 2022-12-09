@@ -1,3 +1,10 @@
 <mat-toolbar color="primary">
   <span>English Dictionary</span>
+  <span class="example-spacer"></span>
+  <button mat-button>
+    <a [routerLink]="['/home']" (click)="routerPath('home')"> home </a>
+  </button>
+  <button mat-button>
+    <a [routerLink]="['/login']" (click)="routerPath('login')"> Log In </a>
+  </button>
 </mat-toolbar>
