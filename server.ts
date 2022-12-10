@@ -5,6 +5,7 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { existsSync } from 'fs';
 import { join } from 'path';
+import 'localstorage-polyfill';
 
 import { AppServerModule } from './src/main.server';
 
@@ -29,6 +30,8 @@ import { AppServerModule } from './src/main.server';
 // (global as any).localStorage = win.localStorage;
 // (global as any).sessionStorage = win.sessionStorage;
 // (global as any).DOMTokenList = win.DOMTokenList;
+
+global['localStorage'] = localStorage;
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {

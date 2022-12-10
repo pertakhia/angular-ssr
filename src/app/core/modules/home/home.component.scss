@@ -37,7 +37,13 @@ mat-card-title {
 mat-card-actions {
   justify-content: space-between;
   flex: 1;
-  align-items: flex-end;
+  align-items: center;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
@@ -47,4 +53,11 @@ button {
 .loading {
   display: flex;
   justify-content: center;
+}
+
+.addStar {
+  color: var(--white);
+}
+.icon-star {
+  cursor: pointer;
 }

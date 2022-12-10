@@ -1,3 +1,6 @@
+import { MissionComponent } from './core/modules/mission/mission.component';
+import { CommonModule } from '@angular/common';
+import { NotfoundComponent } from './core/modules/notfound/notfound.component';
 import { HomeComponent } from './core/modules/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,8 +21,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'mission',
+    component: MissionComponent,
+  },
+  {
     path: '**',
-    redirectTo: '',
+    component: NotfoundComponent,
   },
 ];
 

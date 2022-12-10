@@ -1,3 +1,4 @@
+import { WordTableStage } from './../../modal/wordTableStage';
 import { EnglishWordService } from './../../services/english-word.service';
 import { Observable, pipe, shareReplay, Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   randomWordList: any = [];
   randomWord: string = '';
   englishWordList: any[] = [];
+  wordStageArray: WordTableStage[] = [];
   public translate: string = ``;
   public wordVoice: string = ``;
   public findAudio: any = [];
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public loading: boolean = true;
 
   public url = '//www.w3schools.com';
+  public addStar: string = 'white';
 
   constructor(private engWordService: EnglishWordService) {}
 
@@ -58,6 +61,22 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.translate = `https://translate.google.com/?sl=en&tl=ka&text=${this.englishWordList[0].word}&op=translate`;
           console.log('translate', this.translate);
           console.log('voice', this.wordVoice);
+
+          //check word stage array
+          this.wordStageArray = JSON.parse(
+            localStorage.getItem('wordStage') || '[]'
+          );
+
+          this.wordStageArray.forEach((item: WordTableStage) => {
+            if (item.word === this.englishWordList[0].word) {
+              this.addStar = 'yellow';
+            } else {
+              this.addStar = 'white';
+            }
+          });
+
+          console.log('word stage  new word', this.wordStageArray);
+
           this.loading = false;
         });
     });
@@ -74,30 +93,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.randomWord = englishWordArray[Math.floor(Math.random() * 2466)];
   }
 
-  // public firstRandomWordPromise(): Promise<any> {
-  //   return new Promise((resolve, reject) => {
-  //     this.randomWordStream$.subscribe((data) => {
-  //       this.randomWordList = data;
-  //       this.randomWord = this.randomWordList[0];
-  //       console.log(this.randomWord);
-  //       resolve(this.randomWord);
-  //     });
-  //   }).then((data) => {
-  //     console.log(data);
-  //     this.englishWordStream$ = this.engWordService
-  //       .getEnglishWord(this.randomWord)
-  //       .subscribe((data: any) => {
-  //         console.log(data);
-  //         this.englishWordList = data;
-  //         this.findAudio = data[0].phonetics.find((item: any) => {
-  //           item.audio !== '';
-  //           return item.audio;
-  //         });
-  //         this.wordVoice = this.findAudio.audio;
-  //         console.log('voice', this.wordVoice);
-  //       });
-  //   });
-  // }
+  public addWordStar(): void {
+    let wordStageObj = {
+      word: this.englishWordList[0].word,
+      meaning: this.wordMeaning,
+      audio: this.wordVoice,
+      translate: this.translate,
+    };
+    if (this.addStar === 'white') {
+      this.wordStageArray.push(wordStageObj);
+      localStorage.setItem('wordStage', JSON.stringify(this.wordStageArray));
+      this.addStar = 'yellow';
+    } else {
+      this.wordStageArray = this.wordStageArray.filter(
+        (item: WordTableStage) => item.word !== this.englishWordList[0].word
+      );
+      console.log('add star white');
+      console.log('word stage', this.wordStageArray);
+      this.addStar = 'white';
+    }
+    console.log('word stage', this.wordStageArray);
+  }
 
   ngOnDestroy(): void {
     this.englishWordStream.unsubscribe();
