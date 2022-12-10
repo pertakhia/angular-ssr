@@ -1,3 +1,4 @@
+import { LoginguardGuard } from './core/guards/loginguard.guard';
 import { MissionComponent } from './core/modules/mission/mission.component';
 import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from './core/modules/notfound/notfound.component';
@@ -19,10 +20,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [LoginguardGuard],
   },
   {
     path: 'mission',
     component: MissionComponent,
+    canActivate: [LoginguardGuard],
   },
   {
     path: '**',
