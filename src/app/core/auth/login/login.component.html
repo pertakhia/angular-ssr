@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="container-center">
+  <mat-card class="flex-col">
+    <mat-card-title>Log In</mat-card-title>
+    <mat-card-content>
+      <form class="flex-col">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          color="primary"
+        >
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Password" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Confirm Password" />
+        </mat-form-field>
+        <button class="btn-submit" mat-raised-button type="submit">
+          Log In
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

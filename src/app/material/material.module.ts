@@ -6,6 +6,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const materialModules = [
   // Add material modules heres
@@ -16,6 +18,8 @@ const materialModules = [
   MatIconModule,
   MatTabsModule,
   MatTableModule,
+  MatFormFieldModule,
+  MatInputModule,
 ];
 
 @NgModule({

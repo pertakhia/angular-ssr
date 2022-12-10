@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './core/auth/auth.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +23,9 @@ import { AuthModule } from './core/auth/auth.module';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    AuthModule,
+    ReactiveFormsModule,
     CoreModule,
+    AuthModule,
     SharedModule,
     // The TransferHttpCacheModule is imported here beacuse http call don't duplicate in server
     TransferHttpCacheModule,

@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { FooterComponent } from './modules/footer/footer.component';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
