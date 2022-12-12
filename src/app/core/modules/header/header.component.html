@@ -7,7 +7,26 @@
   <button mat-button>
     <a [routerLink]="['/mission']" (click)="routerPath('mission')"> mission </a>
   </button>
-  <button mat-button>
+  <button mat-button *ngIf="!loginCheck">
     <a [routerLink]="['/login']" (click)="routerPath('login')"> Log In </a>
   </button>
+
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="loginCheck">
+    Profile
+  </button>
+  <mat-menu #menu="matMenu" backdropClass="customize">
+    <button mat-menu-item>
+      <a
+        [routerLink]="['/usr']"
+        (click)="routerPath('user')"
+        class="matmenucolor"
+        >user
+      </a>
+    </button>
+    <button mat-menu-item>
+      <a [routerLink]="['/login']" (click)="logOut()" class="matmenucolor"
+        >Log Out
+      </a>
+    </button>
+  </mat-menu>
 </mat-toolbar>

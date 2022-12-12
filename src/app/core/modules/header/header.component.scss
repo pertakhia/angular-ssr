@@ -6,3 +6,19 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+::ng-deep .customize {
+  background-color: red;
+}
+
+::ng-deep mat-menu {
+  background-color: red;
+}
+
+.customize + * .mat-menu-panel {
+  background: red;
+}
+
+.matmenucolor {
+  color: rgb(27, 26, 26);
+}
