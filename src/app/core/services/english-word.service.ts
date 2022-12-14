@@ -16,4 +16,8 @@ export class EnglishWordService {
   getRandomeWord(): any {
     return this.http.get<any>('https://random-word-api.herokuapp.com/word');
   }
+
+  randomWord(array: any): void {
+    return array[Math.floor(Math.random() * 2466)];
+  }
 }

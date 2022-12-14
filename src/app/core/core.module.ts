@@ -12,6 +12,7 @@ import { MaterialModule } from '../material/material.module';
 import { SafepipePipe } from './pipes/safepipe.pipe';
 import { NotfoundComponent } from './modules/notfound/notfound.component';
 import { MissionComponent } from './modules/mission/mission.component';
+import { TopwordComponent } from './modules/topword/topword.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
@@ -22,6 +23,7 @@ import { MissionComponent } from './modules/mission/mission.component';
     SafepipePipe,
     NotfoundComponent,
     MissionComponent,
+    TopwordComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
@@ -30,6 +32,7 @@ import { MissionComponent } from './modules/mission/mission.component';
     HomeComponent,
     NotfoundComponent,
     MissionComponent,
+    TopwordComponent,
   ],
 })
 export class CoreModule {}

@@ -33,7 +33,7 @@ export class MissionComponent implements OnInit, AfterViewInit {
       this.wordTabeData = JSON.parse(wordData);
       this.dataSource = new MatTableDataSource(this.wordTabeData);
     } else {
-      this.wordTabeData = [];
+      this.wordTabeData = [...this.wordTabeData];
     }
   }
 

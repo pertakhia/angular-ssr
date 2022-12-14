@@ -1,0 +1,31 @@
+mat-card {
+  width: 400px;
+  height: auto;
+  margin-top: 50px;
+  padding: 12px;
+  background-color: var(--success);
+  min-height: 230px;
+  height: auto;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.meaning {
+  font-size: 12px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 340px;
+  }
+}

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public englishWordStream = Subscription.EMPTY;
 
   randomWordList: any = [];
-  randomWord: string = '';
+  randomWord: any = '';
   englishWordList: any[] = [];
   wordStageArray: WordTableStage[] = [];
   public translate: string = ``;
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public randomWordData(): void {
-    this.randomWord = englishWordArray[Math.floor(Math.random() * 2466)];
+    this.randomWord = this.engWordService.randomWord(englishWordArray);
   }
 
   public addWordStar(): void {
