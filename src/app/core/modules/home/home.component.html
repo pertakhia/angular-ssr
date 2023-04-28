@@ -1,6 +1,37 @@
 <div class="display-center">
+  <div class="lesson-center">
+    <h1>აირჩიე გაკვეთილი</h1>
+    <div>
+      <button
+        class="lesson-button"
+        *ngFor="let item of lessonArray"
+        (click)="onLesson($event, item)"
+      >
+        {{ item }}
+      </button>
+    </div>
+    <div class="lesson-body">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>სიტყვები</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p
+            class="word"
+            *ngFor="let item of lessonWordList"
+            (click)="onWordFromApi(item)"
+          >
+            {{ item.word }} - ({{ item.meaning }})
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
   <!-- <app-topword></app-topword> -->
-  <mat-card *ngFor="let word of englishWordList.slice(0, 1)">
+  <mat-card
+    *ngFor="let word of englishWordList.slice(0, 1)"
+    class="margin-bottom"
+  >
     <div *ngIf="!loading">
       <mat-card-header>
         <mat-card-title>{{ word.word }} ({{ word.phonetic }})</mat-card-title>

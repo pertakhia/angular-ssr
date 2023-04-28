@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/login',
+    redirectTo: '/home',
   },
   {
     path: 'login',
@@ -20,12 +20,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [LoginguardGuard],
   },
   {
     path: 'mission',
     component: MissionComponent,
-    canActivate: [LoginguardGuard],
   },
   {
     path: '**',

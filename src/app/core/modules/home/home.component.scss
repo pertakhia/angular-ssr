@@ -10,11 +10,12 @@
 }
 
 mat-card {
-  width: 400px;
+  width: 700px;
+  max-width: 100%;
   height: auto;
   margin-top: 50px;
   padding: 12px;
-  background-color: var(--success);
+  background-color: #9bd59e;
   min-height: 230px;
   height: auto;
 }
@@ -61,4 +62,46 @@ button {
 }
 .icon-star {
   cursor: pointer;
+}
+
+.lesson-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.lesson-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.lesson-active {
+  background-color: green !important;
+  box-shadow: 0 0 10px green !important;
+}
+
+.word {
+  font-size: 24px;
+  font-weight: bold;
+  color: #402525e0;
+  cursor: pointer;
+}
+
+.word:hover {
+  color: #402525;
+}
+
+.margin-bottom {
+  margin-bottom: 100px;
 }
