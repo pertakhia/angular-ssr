@@ -89,4 +89,42 @@ export const englishwordLessonArray = [
       },
     ],
   },
+  {
+    id: 3,
+    wordList: [
+      {
+        word: 'CLAIM',
+        meaning: 'to say with a firm',
+        georgia: 'მოთხოვნა, მოთხოვნის პროცესი',
+      },
+      {
+        word: 'DESTINED',
+        meaning: 'to be sure to do or be something',
+        georgia: 'განსაზღვრული, განსაზღვრულია',
+      },
+      {
+        word: 'CRUSH',
+        meaning: 'to press or squeeze (something) so hard that it breaks or loses its shape',
+        georgia: 'ჩახშობა, განადგურება',
+      },
+      {
+        word: 'ASPIRING',
+        meaning: 'wanting to be',
+        georgia: 'სწრაფვა, მისწრაფება',
+      },
+      {
+        word: 'RESENT',
+        meaning: 'to be angry or upset about (someone or something that you think is unfair)',
+        georgia: 'გულის მოსვლა, აღშფოთება',
+      },
+      {
+        word: 'PURSUE',
+        meaning: 'to follow and try to catch or capture (someone or something) for usually a long distance or time',
+        georgia: 'გაყოლა, დევნა',
+      }
+    ],
+  },
+
+
+
 ];
