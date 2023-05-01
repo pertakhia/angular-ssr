@@ -129,19 +129,27 @@ export class HomeComponent implements OnInit, OnDestroy {
   public onLesson(event: any, lesson: number): void {
     // active target button lesson
     const target = event.target;
-    console.log(target);
     const parent = target.parentElement;
     const children = parent.children;
-    for (let i = 0; i < children.length; i++) {
-      children[i].classList.remove('lesson-active');
-    }
-    target.classList.add('lesson-active');
+
+
     // get lesson number
-    this.lessonWordList = [];
+
     const lessonNumber = lesson - 1;
-    englishwordLessonArray[lessonNumber].wordList.forEach((item: any) => {
-      this.lessonWordList.push(item);
-    });
+    const englishwordLessonArrayLength = englishwordLessonArray.length;
+
+    if (lessonNumber < englishwordLessonArrayLength) {
+      this.lessonWordList = [];
+      for (let i = 0; i < children.length; i++) {
+        children[i].classList.remove('lesson-active');
+      }
+      englishwordLessonArray[lessonNumber].wordList.forEach((item: any) => {
+        this.lessonWordList.push(item);
+      });
+      target.classList.add('lesson-active');
+    } else {
+      return;
+    }
   }
 
   public onWordFromApi(item: any): void {
@@ -180,6 +188,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.log('word stage  new word', this.wordStageArray);
 
         this.loading = false;
+        window.scrollTo(0, document.body.scrollHeight);
       },
       (error: any) => {
         console.log(error);
