@@ -26,9 +26,8 @@ export const englishwordLessonArray = [
       },
       {
         word: 'FELT',
-        meaning:
-          'experience (an emotion or sensation).',
-        georgia: 'იგრძნო'
+        meaning: 'experience (an emotion or sensation).',
+        georgia: 'იგრძნო',
       },
       {
         word: 'AT LEAST',
@@ -44,13 +43,11 @@ export const englishwordLessonArray = [
         word: 'GRASP',
         meaning: 'to take and hold something firmly',
         georgia: 'ხელის მაგრად მოჭერა, ჩაჭიდება',
-
       },
       {
         word: 'ACCUSE',
         meaning: 'to say that someone has done something wrong or illegal',
         georgia: 'დადანაშაულება, დაბრალება',
-
       },
       {
         word: 'ANIMOSITY',
@@ -74,7 +71,6 @@ export const englishwordLessonArray = [
         meaning:
           'a heavy, sticky material from the earth that is made into different shapes and that becomes hard when it is baked or dried',
         georgia: 'თიხა',
-
       },
       {
         word: 'INTERPRET',
@@ -104,7 +100,8 @@ export const englishwordLessonArray = [
       },
       {
         word: 'CRUSH',
-        meaning: 'to press or squeeze (something) so hard that it breaks or loses its shape',
+        meaning:
+          'to press or squeeze (something) so hard that it breaks or loses its shape',
         georgia: 'ჩახშობა, განადგურება',
       },
       {
@@ -114,17 +111,68 @@ export const englishwordLessonArray = [
       },
       {
         word: 'RESENT',
-        meaning: 'to be angry or upset about (someone or something that you think is unfair)',
+        meaning:
+          'to be angry or upset about (someone or something that you think is unfair)',
         georgia: 'გულის მოსვლა, აღშფოთება',
       },
       {
         word: 'PURSUE',
-        meaning: 'to follow and try to catch or capture (someone or something) for usually a long distance or time',
+        meaning:
+          'to follow and try to catch or capture (someone or something) for usually a long distance or time',
         georgia: 'გაყოლა, დევნა',
-      }
+      },
     ],
   },
-
-
-
+  {
+    id: 4,
+    wordList: [
+      {
+        word: 'admit',
+        meaning: 'to say that something is true or the case',
+        georgia: 'აღიარება, დაშვება',
+      },
+      {
+        word: 'perfectionist',
+        meaning: 'a person who is not happy unless things are done perfectly',
+        georgia: 'პერფექციონისტი',
+      },
+      {
+        word: 'genuine',
+        meaning: 'honest and sincere',
+        georgia: 'ჭეშმარიტი, ნამდვილი',
+      },
+      {
+        word: 'rude',
+        meaning: 'not polite or having bad manners',
+        georgia: 'უხეში',
+      },
+      {
+        word: 'delegate',
+        meaning:
+          'to give a particular job, duty, right, etc. to someone, typically someone in a lower position than oneself',
+        georgia: 'დელეგირება, დელეგატი',
+      },
+      {
+        word: 'confident',
+        meaning:
+          'feeling or showing a belief in one abilities or qualities feeling or showing that one is certain of something',
+        georgia: 'დარწმუნებული, თავდაჯერებული',
+      },
+      {
+        word: 'prospect',
+        meaning: 'chances or opportunities to be successful or make money',
+        georgia: 'პერსპექტივა',
+      },
+      {
+        word: 'get around to',
+        meaning: 'to deal with a task',
+        georgia: 'გააკეთოს',
+      },
+      {
+        word: 'gain',
+        meaning: 'to get or secure something wanted or needed',
+        georgia: 'მიღება, მოპოვება',
+      },
+    ],
+  },
 ];
